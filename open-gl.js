@@ -33,6 +33,7 @@ function display() {
 
     drawAxes();
     drawAtPoint();
+    drawCube();
     
     if (rotationTurnedOn) {
         glPopMatrix();
