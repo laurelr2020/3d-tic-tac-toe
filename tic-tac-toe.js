@@ -46,19 +46,10 @@ function drawXGamePiece(){
 }
 
 function drawOGamePiece(){
-    let i = 50;
-
-    let circle_points=100;
-    let cx=50+i, cy=50+x, r=50;
-    let pi = 3.14159;
-
-    glColor3f(1, 1, 1);
     glBegin(GL_LINE_LOOP);
-
-    for(i=0;i<circle_points;i++)
-    {
-        let theta=(2*pi*i)/circle_points;
-        glVertex2f(cx+r*cos(theta),cy+r*sin(theta));
-    }
+        glVertex2f(  10,  8);
+        glVertex2f(  10, 12);
+        glVertex2f( -10, -8);
+        glVertex2f( -10,-12);
     glEnd();
 }
