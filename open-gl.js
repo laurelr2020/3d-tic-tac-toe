@@ -31,9 +31,10 @@ function display() {
         drawTheFloor();
     }
 
-    drawAxes();
-    drawAtPoint();
+    // drawAxes();
+    // drawAtPoint();
     drawCube();
+    drawTicTacToeBoard();
     
     if (rotationTurnedOn) {
         glPopMatrix();
