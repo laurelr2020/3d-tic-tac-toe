@@ -1,6 +1,5 @@
 function drawTicTacToeBoard()
 {
-	// glBegin(GL_LINES);
     glColor3f(255, 255, 255);
     glBegin(GL_POLYGON);
         glVertex3f(20, 45, cubeVertexZ[2] + 1);
