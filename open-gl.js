@@ -36,6 +36,7 @@ function display() {
     drawCube();
     drawTicTacToeBoard();
     drawXGamePiece();
+    drawOGamePiece();
     
     if (rotationTurnedOn) {
         glPopMatrix();
