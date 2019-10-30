@@ -63,4 +63,4 @@ function drawCube() {
         glVertex3f(cubeVertexX[2], cubeVertexY[2], cubeVertexZ[2]);
         glVertex3f(cubeVertexX[3], cubeVertexY[3], cubeVertexZ[3]);
     glEnd();
-} // end of drawThePartialPolyhedron
+}
