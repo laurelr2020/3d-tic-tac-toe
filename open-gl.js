@@ -40,23 +40,23 @@ function display() {
     }
 }
 
-// function drawAxes() {
-//     // draw positive axes in cyan
-//     glColor3f(0.0, 1.0, 1.0);
-//     glBegin(GL_LINES);
-//         glVertex3f(0, 0, 0);   glVertex3f(150, 0, 0);
-//         glVertex3f(0, 0, 0);   glVertex3f(0, 150, 0);
-//         glVertex3f(0, 0, 0);   glVertex3f(0, 0, 150);
-//     glEnd();
+function drawAxes() {
+    // draw positive axes in cyan
+    glColor3f(0.0, 1.0, 1.0);
+    glBegin(GL_LINES);
+        glVertex3f(0, 0, 0);   glVertex3f(150, 0, 0);
+        glVertex3f(0, 0, 0);   glVertex3f(0, 150, 0);
+        glVertex3f(0, 0, 0);   glVertex3f(0, 0, 150);
+    glEnd();
 
-//     // draw negative axes in orange
-//     glColor3f(1.0, 0.6, 0.2);
-//     glBegin(GL_LINES);
-//         glVertex3f(0, 0, 0);   glVertex3f(-150, 0, 0);
-//         glVertex3f(0, 0, 0);   glVertex3f(0, -150, 0);
-//         glVertex3f(0, 0, 0);   glVertex3f(0, 0, -150);
-//     glEnd();
-// } // end of drawAxes()
+    // draw negative axes in orange
+    glColor3f(1.0, 0.6, 0.2);
+    glBegin(GL_LINES);
+        glVertex3f(0, 0, 0);   glVertex3f(-150, 0, 0);
+        glVertex3f(0, 0, 0);   glVertex3f(0, -150, 0);
+        glVertex3f(0, 0, 0);   glVertex3f(0, 0, -150);
+    glEnd();
+} // end of drawAxes()
 
 function drawAtPoint() {
     // draw a little axis thingy in RED
@@ -96,19 +96,19 @@ function doKeyDown(evt) {
         shiftBeingHeld = true;
         
     switch( keyCode ) {
-        case 37:  eyeX -= 1; break; // left arrow
+        case 37:  eyeX -= 10; break; // left arrow
         case 38:  if (shiftBeingHeld) {// move the atY value up
-                    atY += 1;
+                    atY += 10;
                 }
                 else { // move eyeY up
-                    eyeY += 1;
+                    eyeY += 10;
                 }
                 break; // up arrow
-        case 39:  eyeX += 1; break; // right arrow
-        case 40:  eyeY -= 1;; break;  // down arrow
+        case 39:  eyeX += 10; break; // right arrow
+        case 40:  eyeY -= 10; break;  // down arrow
         case 34:  /* subtract 1 from eyeZ or atZ */ break; // page down
         case 33:  /* add 1 to eyeZ or atZ */ break; // page up
-        case 36:  atX = origAtX;
+        case 36: atX = origAtX;
                 atY = origAtY;
                 atZ = origAtZ;
                 eyeX = origEyeX;
