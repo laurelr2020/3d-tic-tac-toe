@@ -2,12 +2,12 @@ var cubeVertexX = [];
 var cubeVertexY = [];
 var cubeVertexZ = [];
 
-const postiveX = 48;
-const negativeX = -48;
-const postiveY = 48;
-const negativeY = -48;
-const postiveZ = 48;
-const negativeZ = -48;
+const postiveX = 48.0;
+const negativeX = -48.0;
+const postiveY = 48.0;
+const negativeY = -48.0;
+const postiveZ = 48.0;
+const negativeZ = -48.0;
 
 cubeVertexX[0] = negativeX;   cubeVertexY[0] = negativeY;   cubeVertexZ[0] = negativeZ;
 cubeVertexX[1] =  postiveX;   cubeVertexY[1] = negativeY;   cubeVertexZ[1] = negativeZ;
