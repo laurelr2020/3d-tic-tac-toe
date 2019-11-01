@@ -35,8 +35,8 @@ function display() {
     // drawAtPoint();
     drawCube();
     drawTicTacToeBoard();
-    drawXGamePiece(middleSquareX);
-    //drawOGamePiece();
+    //drawXGamePiece(middleSquareX);
+    drawOGamePiece(middleSquareO);
     
     if (rotationTurnedOn) {
         glPopMatrix();
