@@ -36,7 +36,7 @@ function display() {
     drawCube();
     drawTicTacToeBoard();
     drawXGamePiece();
-    drawOGamePiece();
+    //drawOGamePiece();
     
     if (rotationTurnedOn) {
         glPopMatrix();
@@ -255,8 +255,8 @@ function initGL() {
     glLoadIdentity();
     gluPerspective(60.0, 1.0, 10.0, 1000.0);
 
-    eyeX = origEyeX = -100;
-    eyeY = origEyeY = 100;
+    eyeX = origEyeX = 0;
+    eyeY = origEyeY = 30;
     eyeZ = origEyeZ = 200;
     
     atX = origAtX = 10;
