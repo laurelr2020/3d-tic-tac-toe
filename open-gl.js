@@ -35,7 +35,7 @@ function display() {
     // drawAtPoint();
     drawCube();
     drawTicTacToeBoard();
-    drawXGamePiece();
+    drawXGamePiece(middleSquareX);
     //drawOGamePiece();
     
     if (rotationTurnedOn) {

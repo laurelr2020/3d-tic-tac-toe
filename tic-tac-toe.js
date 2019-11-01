@@ -29,19 +29,23 @@ function drawTicTacToeBoard(){
     glEnd();
 }
 
-function drawXGamePiece(){
+const middleSquareX = [-10, 8, -10, 12,  10, -8,  10, -12, 
+                        10, 8,  10, 12, -10, -8, -10, -12];
+
+
+function drawXGamePiece(placeX){
     glBegin(GL_POLYGON);
-        glVertex3f( -10,   8, postiveZ + 1);
-        glVertex3f( -10,  12, postiveZ + 1);
-        glVertex3f(  10,  -8, postiveZ + 1);
-        glVertex3f(  10, -12, postiveZ + 1);
+        glVertex3f( placeX[0], placeX[1], postiveZ + 1);
+        glVertex3f( placeX[2], placeX[3], postiveZ + 1);
+        glVertex3f( placeX[4], placeX[5], postiveZ + 1);
+        glVertex3f( placeX[6], placeX[7], postiveZ + 1);
     glEnd();
 
     glBegin(GL_POLYGON);
-        glVertex3f(  10,  8, postiveZ + 1);
-        glVertex3f(  10, 12, postiveZ + 1);
-        glVertex3f( -10, -8, postiveZ + 1);
-        glVertex3f( -10,-12, postiveZ + 1);
+        glVertex3f( placeX[8],  placeX[9],  postiveZ + 1);
+        glVertex3f( placeX[10], placeX[11], postiveZ + 1);
+        glVertex3f( placeX[12], placeX[13], postiveZ + 1);
+        glVertex3f( placeX[14], placeX[15], postiveZ + 1);
     glEnd();
 }
 
