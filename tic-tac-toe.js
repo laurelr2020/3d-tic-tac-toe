@@ -1,22 +1,22 @@
 function drawTicTacToeBoard(){
     glColor3f(1.0, 1.0, 1.0);
     glBegin(GL_POLYGON);
-        glVertex3f(20,  45,  postiveZ + 1);
-        glVertex3f(24,  45,  postiveZ + 1);
-        glVertex3f(20, -45, postiveZ + 1);
-        glVertex3f(24, -45, postiveZ + 1);
+        glVertex3f(18,  45,  postiveZ + 1);
+        glVertex3f(22,  45,  postiveZ + 1);
+        glVertex3f(18, -45, postiveZ + 1);
+        glVertex3f(22, -45, postiveZ + 1);
     glEnd();
 
     glBegin(GL_POLYGON);
-        glVertex3f(-20,  45, postiveZ + 1);
-        glVertex3f(-24,  45, postiveZ + 1);
-        glVertex3f(-20, -45, postiveZ + 1);
-        glVertex3f(-24, -45, postiveZ + 1);
+        glVertex3f(-18,  45, postiveZ + 1);
+        glVertex3f(-22,  45, postiveZ + 1);
+        glVertex3f(-18, -45, postiveZ + 1);
+        glVertex3f(-22, -45, postiveZ + 1);
     glEnd();
     
     glBegin(GL_POLYGON);
-        glVertex3f(45,  18, postiveZ + 1);
-        glVertex3f(45,  22, postiveZ + 1);
+        glVertex3f( 45, 18, postiveZ + 1);
+        glVertex3f( 45, 22, postiveZ + 1);
         glVertex3f(-45, 18, postiveZ + 1);
         glVertex3f(-45, 22, postiveZ + 1);
     glEnd();
@@ -29,9 +29,19 @@ function drawTicTacToeBoard(){
     glEnd();
 }
 
+const leftTopSquareX = [-45, 42, -45, 46, -25, 22, -25, 26, 
+                        -25, 42, -25, 46, -45, 22, -45, 26];
+const middleTopSquareX = [-10, 8, -10, 12,  10, -8,  10, -12, 
+                        10, 8,  10, 12, -10, -8, -10, -12];
+const rightTopSquareX = [45, 8, 45, 12, 25, -8, 25, -12, 
+                        25, 8, 25, 12, 45, -8, 45, -12];
+
+const leftMiddleSquareX = [ -45, 8, -45, 12, -25, -8, -25, -12, 
+                            -25, 8, -25, 12, -45, -8, -45, -12];
 const middleSquareX = [-10, 8, -10, 12,  10, -8,  10, -12, 
                         10, 8,  10, 12, -10, -8, -10, -12];
-
+const rightMiddleSquareX = [45, 8, 45, 12, 25, -8, 25, -12, 
+                            25, 8, 25, 12, 45, -8, 45, -12];
 
 function drawXGamePiece(gamePiecePlace){
     glBegin(GL_POLYGON);
@@ -49,14 +59,27 @@ function drawXGamePiece(gamePiecePlace){
     glEnd();
 }
 
-const middleSquareO = [15, 0, 0, 10, 0, 0];
+//[centerX, centerY]
+const leftTopO   = [-35, 35];
+const middleTopO = [  0, 34];
+const rightTopO  = [ 35, 35];
 
-function drawOGamePiece(gamePiecePlace){
+const leftMiddleO  = [-34, 0];
+const middleO      = [  0, 0];
+const rightMiddleO = [ 34, 0];
+
+const leftBottomO   = [-34, -35];
+const middleBottomO = [  0, -34];
+const rightBottomO  = [ 34, -35];
+
+function drawOGamePiece(gamePieceCenter){
+    const outerRadius = 12;
+    const innerRadius = 8;
     glColor3f(1.0, 1.0, 1.0);
-    fillCircle(gamePiecePlace[0], gamePiecePlace[1], gamePiecePlace[2], postiveZ + 1);
+    fillCircle(outerRadius, gamePieceCenter[0], gamePieceCenter[1], postiveZ + 1);
 
     glColor3f(0.0, 1.0, 0.0);
-    fillCircle(gamePiecePlace[3], gamePiecePlace[4], gamePiecePlace[5], postiveZ + 2);
+    fillCircle(innerRadius, gamePieceCenter[0], gamePieceCenter[1], postiveZ + 2);
 }
 
 function fillCircle(radius, centerX, centerY, zIndex){

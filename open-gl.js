@@ -35,8 +35,30 @@ function display() {
     // drawAtPoint();
     drawCube();
     drawTicTacToeBoard();
-    //drawXGamePiece(middleSquareX);
-    drawOGamePiece(middleSquareO);
+    
+    drawXGamePiece(leftTopSquareX);
+    drawXGamePiece(middleTopSquareX);
+    drawXGamePiece(rightTopSquareX);
+
+    drawXGamePiece(leftMiddleSquareX);
+    drawXGamePiece(middleSquareX);
+    drawXGamePiece(rightMiddleSquareX);
+    
+    // drawXGamePiece(leftBottomSquareX);
+    // drawXGamePiece(middleBottomSquareX);
+    // drawXGamePiece(rightBottomSquareX);
+    
+    // drawOGamePiece(leftTopO);
+    // drawOGamePiece(middleTopO);
+    // drawOGamePiece(rightTopO);
+
+    // drawOGamePiece(leftMiddleO);
+    // drawOGamePiece(middleO);
+    // drawOGamePiece(rightMiddleO);
+
+    // drawOGamePiece(leftBottomO);
+    // drawOGamePiece(middleBottomO);
+    // drawOGamePiece(rightBottomO);
     
     if (rotationTurnedOn) {
         glPopMatrix();
