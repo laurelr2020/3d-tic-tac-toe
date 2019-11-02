@@ -44,21 +44,21 @@ function display() {
     drawXGamePiece(middleSquareX);
     drawXGamePiece(rightMiddleSquareX);
     
-    // drawXGamePiece(leftBottomSquareX);
-    // drawXGamePiece(middleBottomSquareX);
-    // drawXGamePiece(rightBottomSquareX);
+    drawXGamePiece(leftBottomSquareX);
+    drawXGamePiece(middleBottomSquareX);
+    drawXGamePiece(rightBottomSquareX);
     
-    // drawOGamePiece(leftTopO);
-    // drawOGamePiece(middleTopO);
-    // drawOGamePiece(rightTopO);
+    drawOGamePiece(leftTopSquareO);
+    drawOGamePiece(middleTopSquareO);
+    drawOGamePiece(rightTopSquareO);
 
-    // drawOGamePiece(leftMiddleO);
-    // drawOGamePiece(middleO);
-    // drawOGamePiece(rightMiddleO);
+    drawOGamePiece(leftMiddleSquareO);
+    drawOGamePiece(middleSquareO);
+    drawOGamePiece(rightMiddleSquareO);
 
-    // drawOGamePiece(leftBottomO);
-    // drawOGamePiece(middleBottomO);
-    // drawOGamePiece(rightBottomO);
+    drawOGamePiece(leftBottomSquareO);
+    drawOGamePiece(middleBottomSquareO);
+    drawOGamePiece(rightBottomSquareO);
     
     if (rotationTurnedOn) {
         glPopMatrix();

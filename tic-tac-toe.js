@@ -31,10 +31,10 @@ function drawTicTacToeBoard(){
 
 const leftTopSquareX = [-45, 42, -45, 46, -25, 22, -25, 26, 
                         -25, 42, -25, 46, -45, 22, -45, 26];
-const middleTopSquareX = [-10, 8, -10, 12,  10, -8,  10, -12, 
-                        10, 8,  10, 12, -10, -8, -10, -12];
-const rightTopSquareX = [45, 8, 45, 12, 25, -8, 25, -12, 
-                        25, 8, 25, 12, 45, -8, 45, -12];
+const middleTopSquareX = [-10, 42, -10, 46,  10, 22,  10, 26, 
+                        10, 42,  10, 46, -10, 22, -10, 26];
+const rightTopSquareX = [45, 42, 45, 46, 25, 22, 25, 26, 
+                        25, 42, 25, 46, 45, 22, 45, 26];
 
 const leftMiddleSquareX = [ -45, 8, -45, 12, -25, -8, -25, -12, 
                             -25, 8, -25, 12, -45, -8, -45, -12];
@@ -42,6 +42,13 @@ const middleSquareX = [-10, 8, -10, 12,  10, -8,  10, -12,
                         10, 8,  10, 12, -10, -8, -10, -12];
 const rightMiddleSquareX = [45, 8, 45, 12, 25, -8, 25, -12, 
                             25, 8, 25, 12, 45, -8, 45, -12];
+
+const leftBottomSquareX = [ -45, -42, -45, -46, -25, -22, -25, -26, 
+                            -25, -42, -25, -46, -45, -22, -45, -26];
+const middleBottomSquareX = [-10, -42, -10, -46,  10, -22,  10, -26, 
+                            10, -42, 10, -46, -10, -22, -10, -26];
+const rightBottomSquareX = [45, -42, 45, -46, 25, -22, 25, -26, 
+                        25, -42, 25, -46, 45, -22, 45, -26];
 
 function drawXGamePiece(gamePiecePlace){
     glBegin(GL_POLYGON);
@@ -60,17 +67,17 @@ function drawXGamePiece(gamePiecePlace){
 }
 
 //[centerX, centerY]
-const leftTopO   = [-35, 35];
-const middleTopO = [  0, 34];
-const rightTopO  = [ 35, 35];
+const leftTopSquareO   = [-35, 35];
+const middleTopSquareO = [  0, 34];
+const rightTopSquareO  = [ 35, 35];
 
-const leftMiddleO  = [-34, 0];
-const middleO      = [  0, 0];
-const rightMiddleO = [ 34, 0];
+const leftMiddleSquareO  = [-34, 0];
+const middleSquareO      = [  0, 0];
+const rightMiddleSquareO = [ 34, 0];
 
-const leftBottomO   = [-34, -35];
-const middleBottomO = [  0, -34];
-const rightBottomO  = [ 34, -35];
+const leftBottomSquareO   = [-34, -35];
+const middleBottomSquareO = [  0, -34];
+const rightBottomSquareO  = [ 34, -35];
 
 function drawOGamePiece(gamePieceCenter){
     const outerRadius = 12;
