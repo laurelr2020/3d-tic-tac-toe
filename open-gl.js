@@ -31,8 +31,6 @@ function display() {
         drawTheFloor();
     }
 
-    // drawAxes();
-    // drawAtPoint();
     drawCube();
     drawTicTacToeBoard();
     
@@ -40,40 +38,6 @@ function display() {
         glPopMatrix();
     }
 }
-
-function drawAxes() {
-    // draw positive axes in cyan
-    glColor3f(0.0, 1.0, 1.0);
-    glBegin(GL_LINES);
-        glVertex3f(0, 0, 0);   glVertex3f(150, 0, 0);
-        glVertex3f(0, 0, 0);   glVertex3f(0, 150, 0);
-        glVertex3f(0, 0, 0);   glVertex3f(0, 0, 150);
-    glEnd();
-
-    // draw negative axes in orange
-    glColor3f(1.0, 0.6, 0.2);
-    glBegin(GL_LINES);
-        glVertex3f(0, 0, 0);   glVertex3f(-150, 0, 0);
-        glVertex3f(0, 0, 0);   glVertex3f(0, -150, 0);
-        glVertex3f(0, 0, 0);   glVertex3f(0, 0, -150);
-    glEnd();
-} // end of drawAxes()
-
-function drawAtPoint() {
-    // draw a little axis thingy in RED
-    glColor3f(1.0, 0.0, 0.0);
-    glBegin(GL_LINES);
-        glVertex3f(atX, atY, atZ);   glVertex3f(atX+20, atY, atZ);
-        glVertex3f(atX, atY, atZ);   glVertex3f(atX, atY+20, atZ);
-        glVertex3f(atX, atY, atZ);   glVertex3f(atX, atY, atZ+20);
-    glEnd();
-    
-    glPointSize(5);
-    glColor3f(1.0, 1.0, 1.0);
-    glBegin(GL_POINTS);
-        glVertex3f(atX, atY, atZ);
-    glEnd();
-} // end of drawAtPoint()
 
 // --------------- support for key events ----------------------------------------
 
@@ -87,8 +51,6 @@ function drawAtPoint() {
 */
 function doKeyDown(evt) {
     var keyCode = evt.keyCode;  // code for the key that was pressed
-
-    // TODO:  Add code to respond to the key press.
     
     if (keyCode >=34 && keyCode <= 40) {
         evt.preventDefault(); // Stop page from scrolling for arrow keys, home, end, pageup, pagedown.
@@ -98,10 +60,10 @@ function doKeyDown(evt) {
         
     switch( keyCode ) {
         case 37:  eyeX -= 10; break; // left arrow
-        case 38:  if (shiftBeingHeld) {// move the atY value up
+        case 38:  if (shiftBeingHeld) {
                     atY += 10;
                 }
-                else { // move eyeY up
+                else {
                     eyeY += 10;
                 }
                 break; // up arrow
@@ -117,9 +79,9 @@ function doKeyDown(evt) {
                 eyeZ = origEyeZ; break; // home
         case 82:
         case 114: rotationTurnedOn = !rotationTurnedOn;  // the letter R
-    } // end switch
+    }
     
-    display();  // Redraw the picture to account for changes.
+    display(); 
 }
 
 function doKeyUp(evt) {
@@ -195,21 +157,18 @@ function installMouseHandler(canvasID) {
     }
     
     canvas.addEventListener("mousedown", doMouseDown, false);
-} // end installMouseHandler    
+}  
 
 // --------------- support for animation ------------------------------------------
 
-/* You can call startAnimation() to run an animation.  A frame will be drawn every
+/** You can call startAnimation() to run an animation.  A frame will be drawn every
 * 30 milliseconds (can be changed in the call to glutTimerFunc.  The global frameNumber
 * variable will be incremented for each frame.  Call pauseAnimation() to stop animating.
 */
 
-var animating = false;      // indicates whether an animation is in progress;
-                            // do not change directly; call startAnimation() and pauseAnimation()
+var animating = false;
 
 function updateFrame() {
-        // this is called before each frame of the animation.
-// TODO: INSERT CODE TO UPDATE ANY OTHER DATA USED IN DRAWING A FRAME
     y += 0.3;
     if (y > 60) {
         y = -50;
@@ -218,7 +177,6 @@ function updateFrame() {
 }
 
 function timerFunction() {
-        // Used for animation; do not call this directly.
     if (animating) {
         updateFrame();
         display();
@@ -227,7 +185,6 @@ function timerFunction() {
 }
 
 function startAnimation() {
-        // call this to start or restart the animation.
     if ( ! animating ) {
         animating = true;
         setTimeout(timerFunction, 30);
@@ -235,7 +192,6 @@ function startAnimation() {
 }
 
 function pauseAnimation() {
-        // call this to pause the animation.
     animating = 0;
 }
 // ------------------------- initialization functions -----------------------------------
@@ -253,8 +209,8 @@ function initGL() {
     glLoadIdentity();
     gluPerspective(60.0, 1.0, 10.0, 1000.0);
 
-    eyeX = origEyeX = -100;
-    eyeY = origEyeY = 100;
+    eyeX = origEyeX = 0;
+    eyeY = origEyeY = 30;
     eyeZ = origEyeZ = 200;
     
     atX = origAtX = 10;
@@ -271,21 +227,16 @@ function initGL() {
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);	
 
-    // TODO: Uncomment the following 4 lines to do some typical initialization for 
-    // lighting and materials.
-
+    //TODO: Uncomment the following 4 lines to do some typical initialization for lighting and materials.
     //glEnable(GL_LIGHTING);        // Enable lighting.
     //glEnable(GL_LIGHT0);          // Turn on a light.  By default, shines from direction of viewer.
     //glEnable(GL_NORMALIZE);       // OpenGL will make all normal vectors into unit normals
     //glEnable(GL_COLOR_MATERIAL);  // Material ambient and diffuse colors can be set by glColor*
 }
 
-function init() {  // Called by <body onload="init()">, when the page has loaded.
+function init() {
     try {
-        glsimUse("glcanvas"); // OpenGL will draw to the canvas with id="glcanvas".
-                                    //TODO:  If you need to keep the image between calls
-                                    // to display(), use  { preserveDrawingBuffer: true }
-                                    // as the second parameter to this function.
+        glsimUse("glcanvas");
     }catch (e) {
         document.getElementById("canvas-holder").innerHTML =
             "Sorry, an error occured:<br>" + e;

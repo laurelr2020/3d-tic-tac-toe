@@ -1,16 +1,22 @@
-var angleToRotate = 0;
 var cubeVertexX = [];
 var cubeVertexY = [];
 var cubeVertexZ = [];
 
-cubeVertexX[0] = -48.0;   cubeVertexY[0] = -48.0;   cubeVertexZ[0] = -48.0;
-cubeVertexX[1] =  48.0;   cubeVertexY[1] = -48.0;   cubeVertexZ[1] = -48.0;
-cubeVertexX[2] =  48.0;   cubeVertexY[2] = -48.0;   cubeVertexZ[2] =  48.0;
-cubeVertexX[3] = -48.0;   cubeVertexY[3] = -48.0;   cubeVertexZ[3] =  48.0;
-cubeVertexX[4] = -48.0;   cubeVertexY[4] =  48.0;   cubeVertexZ[4] = -48.0;
-cubeVertexX[5] =  48.0;   cubeVertexY[5] =  48.0;   cubeVertexZ[5] = -48.0;
-cubeVertexX[6] =  48.0;   cubeVertexY[6] =  48.0;   cubeVertexZ[6] =  48.0;
-cubeVertexX[7] = -48.0;   cubeVertexY[7] =  48.0;   cubeVertexZ[7] =  48.0;
+const postiveX = 48.0;
+const negativeX = -48.0;
+const postiveY = 48.0;
+const negativeY = -48.0;
+const postiveZ = 48.0;
+const negativeZ = -48.0;
+
+cubeVertexX[0] = negativeX;   cubeVertexY[0] = negativeY;   cubeVertexZ[0] = negativeZ;
+cubeVertexX[1] =  postiveX;   cubeVertexY[1] = negativeY;   cubeVertexZ[1] = negativeZ;
+cubeVertexX[2] =  postiveX;   cubeVertexY[2] = negativeY;   cubeVertexZ[2] =  postiveZ;
+cubeVertexX[3] = negativeX;   cubeVertexY[3] = negativeY;   cubeVertexZ[3] =  postiveZ;
+cubeVertexX[4] = negativeX;   cubeVertexY[4] =  postiveY;   cubeVertexZ[4] = negativeZ;
+cubeVertexX[5] =  postiveX;   cubeVertexY[5] =  postiveY;   cubeVertexZ[5] = negativeZ;
+cubeVertexX[6] =  postiveX;   cubeVertexY[6] =  postiveY;   cubeVertexZ[6] =  postiveZ;
+cubeVertexX[7] = negativeX;   cubeVertexY[7] =  postiveY;   cubeVertexZ[7] =  postiveZ;
 
 function drawCube() {
     // face 0:  front
