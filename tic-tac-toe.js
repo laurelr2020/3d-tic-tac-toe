@@ -1,5 +1,5 @@
 'use strict'
-
+//adapated from https://www.thatsoftwaredude.com/content/6189/coding-tic-tac-toe-in-javascript
 const boardSize = 3;
 
 let winningConditions = new Array();
