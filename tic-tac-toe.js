@@ -27,7 +27,7 @@ function checkForWinner(){
     else
         selections = computerSelections;
     
-    if(selections >= size){
+    if(selections >= boardSize){
         for(let winningHand = 0; winningHand < winningConditions.length; winningHand++){
             let winCondition = winningConditions[winningHand];
             let winFound = true;
