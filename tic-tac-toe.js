@@ -67,4 +67,6 @@ if(checkForWinner()){
     }else{
         //computer wins
     }
-}else if()
+}else if(checkForDraw()){
+    //draw
+}
