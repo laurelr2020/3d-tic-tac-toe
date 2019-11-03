@@ -61,6 +61,12 @@ function checkForDraw(){
     return player1Selections.length + computerSelections.length == (boardSize * boardSize);
 }
 
+function reset(){
+    currentPlayer = 0;
+    player1Selections = new Array();
+    computerSelections = new Array();
+}
+
 if(checkForWinner()){
     if(currentPlayer == 0){
         //player one wins
