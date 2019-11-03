@@ -56,3 +56,15 @@ function checkForWinner(){
     }
     return win;
 }
+
+function checkForDraw(){
+    return player1Selections.length + computerSelections.length == (boardSize * boardSize);
+}
+
+if(checkForWinner()){
+    if(currentPlayer == 0){
+        //player one wins
+    }else{
+        //computer wins
+    }
+}else if()
