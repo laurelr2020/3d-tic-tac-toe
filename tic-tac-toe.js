@@ -18,6 +18,11 @@ let currentPlayer = 0;
 let player1Selections = new Array();
 let computerSelections = new Array();
 
+function computerMove(){
+    let nextMove = Math.floor(Math.random() * 9);
+    //if not already played, play in that square.
+}
+
 function checkForWinner(){
     var win = false;
     var selections = new Array();
