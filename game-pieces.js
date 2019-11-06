@@ -99,6 +99,8 @@ function drawOGamePiece(gamePieceCenter){
 
     glColor3f(0.0, 1.0, 0.0);
     fillCircle(innerRadius, gamePieceCenter[0], gamePieceCenter[1], postiveZ + 2);
+
+    glColor3f(1.0, 1.0, 1.0);
 }
 
 /**fills a circle for the O game piece based on the radius and center of circle that is passed in */
