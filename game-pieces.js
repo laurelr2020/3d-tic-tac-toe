@@ -1,11 +1,16 @@
 /** Game Pieces */
 
 function drawGamePieces(pieces){
-    if(pieces.length > 0){
+    if(pieces.length > 0 && pieces.length <=9){
         for(let i = 0; i < pieces.length; i++){
             if(pieces[i].player == 0){
                 let place = determineXPlace(pieces[i].place);
                 drawXGamePiece(place);
+                currentPlayer = 1;
+            }else if(pieces[i].player == 1){
+                let place = determineOPlace(pieces[i].place);
+                drawOGamePiece(place);  
+                currentPlayer = 0;    
             }
         }
     }
@@ -24,6 +29,22 @@ function determineXPlace(squareSection){
         case "bottom-left": return leftBottomSquareX;
         case "bottom-middle": return middleBottomSquareX;
         case "bottom-right": return rightBottomSquareX;
+    }
+}
+
+function determineOPlace(squareSection){
+    switch(squareSection){
+        case "top-left": return leftTopSquareO;
+        case "top-middle": return middleTopSquareO;
+        case "top-right": return rightTopSquareO;
+
+        case "middle-left": return leftMiddleSquareO;
+        case "middle-middle": return middleSquareO;
+        case "middle-right": return rightMiddleSquareO;
+
+        case "bottom-left": return leftBottomSquareO;
+        case "bottom-middle": return middleBottomSquareO;
+        case "bottom-right": return rightBottomSquareO;
     }
 }
 
