@@ -1,65 +1,83 @@
-function drawTicTacToeBoard(){
-    glColor3f(1.0, 1.0, 1.0);
-    glBegin(GL_POLYGON);
-        glVertex3f(18,  45,  postiveZ + 1);
-        glVertex3f(22,  45,  postiveZ + 1);
-        glVertex3f(18, -45, postiveZ + 1);
-        glVertex3f(22, -45, postiveZ + 1);
-    glEnd();
+'use strict'
+//adapated from https://www.thatsoftwaredude.com/content/6189/coding-tic-tac-toe-in-javascript
+const boardSize = 3;
 
-    glBegin(GL_POLYGON);
-        glVertex3f(-18,  45, postiveZ + 1);
-        glVertex3f(-22,  45, postiveZ + 1);
-        glVertex3f(-18, -45, postiveZ + 1);
-        glVertex3f(-22, -45, postiveZ + 1);
-    glEnd();
+let winningConditions = new Array();
+winningConditions.push([1, 2, 3]);
+winningConditions.push([4, 5, 6]);
+winningConditions.push([7, 8, 9]);
+
+winningConditions.push([1, 4, 7]);
+winningConditions.push([2, 5, 8]);
+winningConditions.push([3, 6, 9]);
+
+winningConditions.push([1, 5, 9]);
+winningConditions.push([3, 5, 7]);
+
+let currentPlayer = 0;
+let player1Selections = new Array();
+let computerSelections = new Array();
+
+function computerMove(){
+    let nextMove = Math.floor(Math.random() * 9);
+    //if not already played, play in that square.
+}
+
+function checkForWinner(){
+    var win = false;
+    var selections = new Array();
+
+    if(currentPlayer == 0)
+        selections = player1Selections;
+    else
+        selections = computerSelections;
     
-    glBegin(GL_POLYGON);
-        glVertex3f( 45, 18, postiveZ + 1);
-        glVertex3f( 45, 22, postiveZ + 1);
-        glVertex3f(-45, 18, postiveZ + 1);
-        glVertex3f(-45, 22, postiveZ + 1);
-    glEnd();
+    if(selections >= boardSize){
+        for(let winningHand = 0; winningHand < winningConditions.length; winningHand++){
+            let winCondition = winningConditions[winningHand];
+            let winFound = true;
 
-    glBegin(GL_POLYGON);
-        glVertex3f( 45, -18, postiveZ + 1);
-        glVertex3f( 45, -22, postiveZ + 1);
-        glVertex3f(-45, -18, postiveZ + 1);
-        glVertex3f(-45, -22, postiveZ + 1);
-    glEnd();
+            for(let winningSlot = 0; winningSlot < winCondition.length; winningSlot++){
+                let slotFound = false;
+
+                for(let playerHandSlot = 0; playerHandSlot < selections.length; playerHandSlot++){
+                    if(winningHand[winningSlot] == player1Selections[playerHandSlot]){
+                        slotFound = true;
+                        break;
+                    }
+                }
+
+                if(slotFound == false){
+                    winFound = false;
+                    break;
+                }
+            }
+
+            if(winFound == true){
+                win = true;
+                break;
+            }
+        }
+    }
+    return win;
 }
 
-function drawXGamePiece(gamePiecePlace){
-    glBegin(GL_POLYGON);
-        glVertex3f( gamePiecePlace[0], gamePiecePlace[1], postiveZ + 1);
-        glVertex3f( gamePiecePlace[2], gamePiecePlace[3], postiveZ + 1);
-        glVertex3f( gamePiecePlace[4], gamePiecePlace[5], postiveZ + 1);
-        glVertex3f( gamePiecePlace[6], gamePiecePlace[7], postiveZ + 1);
-    glEnd();
-
-    glBegin(GL_POLYGON);
-        glVertex3f( gamePiecePlace[8],  gamePiecePlace[9],  postiveZ + 1);
-        glVertex3f( gamePiecePlace[10], gamePiecePlace[11], postiveZ + 1);
-        glVertex3f( gamePiecePlace[12], gamePiecePlace[13], postiveZ + 1);
-        glVertex3f( gamePiecePlace[14], gamePiecePlace[15], postiveZ + 1);
-    glEnd();
+function checkForDraw(){
+    return player1Selections.length + computerSelections.length == (boardSize * boardSize);
 }
 
-function drawOGamePiece(gamePieceCenter){
-    glColor3f(1.0, 1.0, 1.0);
-    fillCircle(outerRadius, gamePieceCenter[0], gamePieceCenter[1], postiveZ + 1);
-
-    glColor3f(0.0, 1.0, 0.0);
-    fillCircle(innerRadius, gamePieceCenter[0], gamePieceCenter[1], postiveZ + 2);
+function reset(){
+    currentPlayer = 0;
+    player1Selections = new Array();
+    computerSelections = new Array();
 }
 
-function fillCircle(radius, centerX, centerY, zIndex){
-    glBegin(GL_POLYGON);
-    for (let thetaInDegrees = 0; thetaInDegrees < 360; thetaInDegrees++) {
-        var theta = thetaInDegrees * Math.PI / 180;
-        var x = radius * Math.cos(theta) + centerX;
-        var y = radius * Math.sin(theta) + centerY;
-        glVertex3f(x, y, zIndex);
-    } 
-    glEnd();
+if(checkForWinner()){
+    if(currentPlayer == 0){
+        //player one wins
+    }else{
+        //computer wins
+    }
+}else if(checkForDraw()){
+    //draw
 }
