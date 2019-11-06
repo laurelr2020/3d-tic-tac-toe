@@ -19,15 +19,17 @@ let currentPlayer = 0;
 let player1Selections = new Array();
 let computerSelections = new Array();
 
-var playedPieces = [];
+let playedPieces = [];
 
 function personMove(x, y){
     if(x >= 300 && x<= 635 && y>=230 && y<=550){
         let placePlayed = checkBounds(x,y);
-        playedPieces.push({
-            player: currentPlayer,
-            place: placePlayed
-        });
+        if(placePlayed != ""){
+            playedPieces.push({
+                player: currentPlayer,
+                place: placePlayed
+            });
+        }
     }
 }
 

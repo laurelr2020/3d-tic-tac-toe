@@ -1,4 +1,32 @@
 /** Game Pieces */
+
+function drawGamePieces(pieces){
+    if(pieces.length > 0){
+        for(let i = 0; i < pieces.length; i++){
+            if(pieces[i].player == 0){
+                let place = determineXPlace(pieces[i].place);
+                drawXGamePiece(place);
+            }
+        }
+    }
+}
+
+function determineXPlace(squareSection){
+    switch(squareSection){
+        case "top-left": return leftTopSquareX;
+        case "top-middle": return middleTopSquareX;
+        case "top-right": return rightTopSquareX;
+
+        case "middle-left": return leftMiddleSquareX;
+        case "middle-middle": return middleSquareX;
+        case "middle-right": return rightMiddleSquareX;
+
+        case "bottom-left": return leftBottomSquareX;
+        case "bottom-middle": return middleBottomSquareX;
+        case "bottom-right": return rightBottomSquareX;
+    }
+}
+
 /**
  * Tic-Tac-Toe X
  */
@@ -136,8 +164,10 @@ function CanvasSquare(xLeft, xRight, yTop, yBottom){
 
     this.betweenBounds = function(x, y){
         if(inXBound(x) && inYBound(y)){
-            display();
-            drawXGamePiece(leftTopSquareX);
+            return true;
+        }
+        else{
+            return false;
         }
     }
 

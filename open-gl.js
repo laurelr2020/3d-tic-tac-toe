@@ -28,6 +28,7 @@ function display() {
 
     drawCube();
     drawTicTacToeBoard();
+    drawGamePieces(playedPieces);
     
     if (rotationTurnedOn) {
         glPopMatrix();
@@ -94,8 +95,8 @@ function doMouseDown(evt) {
     var x,y;
     x = Math.round(evt.clientX - r.left);  // translate mouse position from screen coords to canvas coords.
     y = Math.round(evt.clientY - r.top);   // round to integer values; some browsers would give non-integers.
-    
-    topLeftSquare.betweenBounds(x, y);
+
+    personMove(x,y);
 }
 
 // --------------- support for animation ------------------------------------------
