@@ -4,16 +4,16 @@ const boardSize = 3;
 const numberOfSlots = 9;
 
 let winningConditions = new Array();
-winningConditions.push([1, 2, 3]);
-winningConditions.push([4, 5, 6]);
-winningConditions.push([7, 8, 9]);
+winningConditions.push(["top-left", "top-middle", "top-right"]);
+winningConditions.push(["middle-left", "middle-middle", "middle-right"]);
+winningConditions.push(["bottom-left", "bottom-middle", "bottom-right"]);
 
-winningConditions.push([1, 4, 7]);
-winningConditions.push([2, 5, 8]);
-winningConditions.push([3, 6, 9]);
+winningConditions.push(["top-left", "middle-left", "bottom-left"]);
+winningConditions.push(["top-middle", "middle-middle", "bottom-middle"]);
+winningConditions.push(["top-right", "middle-right", "bottom-right"]);
 
-winningConditions.push([1, 5, 9]);
-winningConditions.push([3, 5, 7]);
+winningConditions.push(["top-left", "middle-middle", "bottom-right"]);
+winningConditions.push(["top-right", "middle-middle", "bottom-left"]);
 
 let currentPlayer = 0;
 let player1Selections = new Array();
