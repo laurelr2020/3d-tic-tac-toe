@@ -155,3 +155,27 @@ function CanvasSquare(xLeft, xRight, yTop, yBottom){
             return false;
     }
 }
+
+function checkBounds(x, y){
+    if(topLeftSquare.betweenBounds(x, y)){
+        return "top-left";
+    }else if(topMiddleSquare.betweenBounds(x, y)){
+        return "top-middle";
+    }else if(topRightSquare.betweenBounds(x, y)){
+        return "top-right";
+    }else if(middleLeftSquare.betweenBounds(x, y)){
+        return "middle-left";
+    }else if(middleMiddleSquare.betweenBounds(x, y)){
+        return "middle-middle";
+    }else if(middleRightSquare.betweenBounds(x, y)){
+        return "middle-right";
+    }else if(bottomLeftSquare.betweenBounds(x, y)){
+        return "bottom-left";
+    }else if(bottomMiddleSquare.betweenBounds(x, y)){
+        return "bottom-middle";
+    }else if(bottomRightSquare.betweenBounds(x, y)){
+        return "bottom-right";
+    }else{
+        return "";
+    }    
+}
