@@ -43,3 +43,44 @@ const rightMiddleSquareO = [ 34, 0];
 const leftBottomSquareO   = [-34, -35];
 const middleBottomSquareO = [  0, -34];
 const rightBottomSquareO  = [ 34, -35];
+
+//canvas coorrdiantes 
+let topLeftSquare = new CanvasSquare(300, 400, 230, 330);
+let topMiddleSquare = new CanvasSquare(401, 535, 230, 330);
+let topRightSquare = new CanvasSquare(536, 635, 230, 330);
+
+let middleLeftSquare = new CanvasSquare(300, 400, 331, 460);
+let middleMiddleSquare = new CanvasSquare(401, 535, 331, 460);
+let middleRightSquare = new CanvasSquare(536, 635, 331, 460);
+
+let bottomLeftSquare = new CanvasSquare(300, 400, 461, 550);
+let bottomMiddleSquare = new CanvasSquare(401, 535, 461, 550);
+let bottomRightSquare = new CanvasSquare(536, 635, 461, 550);
+
+function CanvasSquare(xLeft, xRight, yTop, yBottom){
+    this.xLeftBorder = xLeft;
+    this.xRightBorder = xRight;
+    this.yTopBorder = yTop;
+    this.yBottomBorder = yBottom;
+
+    this.betweenBounds = function(x, y){
+        if(inXBound(x) && inYBound(y)){
+            display();
+            drawXGamePiece(leftTopSquareX);
+        }
+    }
+
+    var inXBound = function(x){
+        if(x > xLeft && x < xRight) 
+            return true;
+        else 
+            return false;
+    }
+
+    var inYBound = function(y){
+        if(y > yTop && y < yBottom) 
+            return true;
+        else 
+            return false;
+    }
+}
