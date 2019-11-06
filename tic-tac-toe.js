@@ -1,6 +1,7 @@
 'use strict'
 //adapated from https://www.thatsoftwaredude.com/content/6189/coding-tic-tac-toe-in-javascript
 const boardSize = 3;
+const numberOfSlots = 9;
 
 let winningConditions = new Array();
 winningConditions.push([1, 2, 3]);
@@ -17,6 +18,18 @@ winningConditions.push([3, 5, 7]);
 let currentPlayer = 0;
 let player1Selections = new Array();
 let computerSelections = new Array();
+
+var playedPieces = [];
+
+function personMove(x, y){
+    if(x >= 300 && x<= 635 && y>=230 && y<=550){
+        let placePlayed = checkBounds(x,y);
+        playedPieces.push({
+            player: currentPlayer,
+            place: placePlayed
+        });
+    }
+}
 
 function computerMove(){
     let nextMove = Math.floor(Math.random() * 9);
