@@ -22,15 +22,15 @@ let computerSelections = new Array();
 let playedPieces = [];
 
 function personMove(x, y){
-    if(x >= 300 && x<= 635 && y>=230 && y<=550){
-        let placePlayed = checkBounds(x,y);
+    if(!clickOnBoard()) return;
+
+    let placePlayed = checkBounds(x,y);
         if(placePlayed != ""){
             playedPieces.push({
                 player: currentPlayer,
                 place: placePlayed
             });
         }
-    }
 }
 
 function computerMove(){
@@ -85,14 +85,5 @@ function reset(){
     currentPlayer = 0;
     player1Selections = new Array();
     computerSelections = new Array();
-}
-
-if(checkForWinner()){
-    if(currentPlayer == 0){
-        //player one wins
-    }else{
-        //computer wins
-    }
-}else if(checkForDraw()){
-    //draw
+    playedPieces = [];
 }

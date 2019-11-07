@@ -230,3 +230,11 @@ function checkBounds(x, y){
         return "";
     }    
 }
+
+function clickOnBoard(){
+    if(x >= 300 && x<= 635 && y>=230 && y<=550){
+        return true;
+    }else{
+        return false;
+    }
+}
