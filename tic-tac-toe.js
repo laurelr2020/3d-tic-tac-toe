@@ -17,12 +17,12 @@ winningConditions.push(["top-right", "middle-middle", "bottom-left"]);
 
 let currentPlayer = 0;
 let player1Selections = new Array();
-let computerSelections = new Array();
+let player2Selections = new Array();
 
 let playedPieces = [];
 
 function personMove(x, y){
-    if(!clickOnBoard()) return;
+    if(!clickOnBoard(x, y)) return;
 
     let placePlayed = checkBounds(x,y);
         if(placePlayed != ""){
@@ -30,6 +30,14 @@ function personMove(x, y){
                 player: currentPlayer,
                 place: placePlayed
             });
+            
+            if(currentPlayer == 0){
+                player1Selections.push(placePlayed);
+            }
+            if(currentPlayer == 1){
+                player2Selections.push(placePlayed);
+            }
+
         }
 }
 
@@ -45,7 +53,7 @@ function checkForWinner(){
     if(currentPlayer == 0)
         selections = player1Selections;
     else
-        selections = computerSelections;
+        selections = player2Selections;
     
     if(selections >= boardSize){
         for(let winningHand = 0; winningHand < winningConditions.length; winningHand++){
@@ -78,12 +86,37 @@ function checkForWinner(){
 }
 
 function checkForDraw(){
-    return player1Selections.length + computerSelections.length == (boardSize * boardSize);
+    return player1Selections.length + player2Selections.length == (boardSize * boardSize);
+}
+
+function gameUpdate(){
+    if(checkForWinner()){
+        if(currentPlayer == 0){
+            Swal.fire({
+                title: 'Winner Winner!',
+                text: 'Player 1 Wins!!!!',
+                confirmButtonText: 'Congrats!!'
+            });        
+        }else if(currentPlayer == 1){
+            Swal.fire({
+                title: 'Winner Winner!',
+                text: 'Player 2 Wins!!!!',
+                confirmButtonText: 'Congrats!!'
+            });
+        }
+    }else if(checkForDraw()){
+        Swal.fire({
+            title: 'Draw',
+            text: 'It is a tie!',
+            confirmButtonText: 'Wanna rematch?'
+        });
+    }
+    reset();
 }
 
 function reset(){
     currentPlayer = 0;
     player1Selections = new Array();
-    computerSelections = new Array();
+    player2Selections = new Array();
     playedPieces = [];
 }
