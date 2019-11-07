@@ -1,5 +1,5 @@
 'use strict'
-//adapated from https://www.thatsoftwaredude.com/content/6189/coding-tic-tac-toe-in-javascript
+
 const boardSize = 3;
 const numberOfSlots = 9;
 
@@ -39,11 +39,6 @@ function personMove(x, y){
             }
 
         }
-}
-
-function computerMove(){
-    let nextMove = Math.floor(Math.random() * 9);
-    //if not already played, play in that square.
 }
 
 function checkForWinner(){
