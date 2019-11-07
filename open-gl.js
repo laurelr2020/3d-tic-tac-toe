@@ -56,17 +56,10 @@ function doKeyDown(evt) {
         
     switch( keyCode ) {
         case 37:  eyeX -= 10; break; // left arrow
-        case 38:  if (shiftBeingHeld) {
-                    atY += 10;
-                }
-                else {
-                    eyeY += 10;
-                }
+        case 38:  eyeY += 10;
                 break; // up arrow
         case 39:  eyeX += 10; break; // right arrow
         case 40:  eyeY -= 10; break;  // down arrow
-        case 34:  /* subtract 1 from eyeZ or atZ */ break; // page down
-        case 33:  /* add 1 to eyeZ or atZ */ break; // page up
         case 36: atX = origAtX;
                 atY = origAtY;
                 atZ = origAtZ;
