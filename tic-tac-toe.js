@@ -94,26 +94,28 @@ function gameUpdate(){
     let thereIsADraw = checkForDraw()
     if(thereIsAWin){
         if(currentPlayer == 0){
-            Swal.fire({
-                icon: 'success',
-                title: 'Winner Winner!',
-                text: 'Player 1 Wins!!!!',
-                confirmButtonText: 'Congrats!!'
-            });        
+            swal({
+                title: "Good job!",
+                text: "Player 1 Won",
+                icon: "success",
+                button: "Aww yiss!",
+            });       
         }else if(currentPlayer == 1){
-            Swal.fire({
-                icon: 'success',
-                title: 'Winner Winner!',
-                text: 'Player 2 Wins!!!!',
-                confirmButtonText: 'Congrats!!'
+            swal({
+                title: "Good job!",
+                text: "Player 2 Won!!",
+                icon: "success",
+                button: "Aww yiss!",
             });
         }
     }else if(thereIsADraw){
-        Swal.fire({
-            title: 'Draw',
-            text: 'It is a tie!',
-            confirmButtonText: 'Wanna rematch?',
-        });
+        alert("There was a draw. Rematch?");
+        // swal({
+        //     title: "Good job!",
+        //     text: "You clicked the button!",
+        //     icon: "success",
+        //     button: "Aww yiss!",
+        // });
     }
 
     if(thereIsAWin || thereIsADraw){
