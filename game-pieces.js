@@ -6,10 +6,12 @@ function drawGamePieces(pieces){
             if(pieces[i].player == 0){
                 let place = determineXPlace(pieces[i].place);
                 drawXGamePiece(place);
+                //gameUpdate();
                 currentPlayer = 1;
             }else if(pieces[i].player == 1){
                 let place = determineOPlace(pieces[i].place);
                 drawOGamePiece(place);  
+                //gameUpdate();
                 currentPlayer = 0;    
             }
         }
@@ -231,7 +233,7 @@ function checkBounds(x, y){
     }    
 }
 
-function clickOnBoard(){
+function clickOnBoard(x, y){
     if(x >= 300 && x<= 635 && y>=230 && y<=550){
         return true;
     }else{
