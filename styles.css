@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+body{
+    background-color: #111;
+    color: azure;
+}
+
 div{
     position: relative; 
     width: 100%;
