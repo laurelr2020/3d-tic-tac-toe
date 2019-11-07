@@ -6,12 +6,12 @@ function drawGamePieces(pieces){
             if(pieces[i].player == 0){
                 let place = determineXPlace(pieces[i].place);
                 drawXGamePiece(place);
-                //gameUpdate();
+                gameUpdate();
                 currentPlayer = 1;
             }else if(pieces[i].player == 1){
                 let place = determineOPlace(pieces[i].place);
                 drawOGamePiece(place);  
-                //gameUpdate();
+                gameUpdate();
                 currentPlayer = 0;    
             }
         }

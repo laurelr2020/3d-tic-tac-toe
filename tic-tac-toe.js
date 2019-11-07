@@ -55,7 +55,7 @@ function checkForWinner(){
     else
         selections = player2Selections;
     
-    if(selections >= boardSize){
+    if(selections.length <= boardSize){
         for(let winningHand = 0; winningHand < winningConditions.length; winningHand++){
             let winCondition = winningConditions[winningHand];
             let winFound = true;
@@ -64,7 +64,7 @@ function checkForWinner(){
                 let slotFound = false;
 
                 for(let playerHandSlot = 0; playerHandSlot < selections.length; playerHandSlot++){
-                    if(winningHand[winningSlot] == player1Selections[playerHandSlot]){
+                    if(winningConditions[winningSlot] == player1Selections[playerHandSlot]){
                         slotFound = true;
                         break;
                     }
@@ -90,28 +90,35 @@ function checkForDraw(){
 }
 
 function gameUpdate(){
-    if(checkForWinner()){
+    let thereIsAWin = checkForWinner();
+    let thereIsADraw = checkForDraw()
+    if(thereIsAWin){
         if(currentPlayer == 0){
             Swal.fire({
+                icon: 'success',
                 title: 'Winner Winner!',
                 text: 'Player 1 Wins!!!!',
                 confirmButtonText: 'Congrats!!'
             });        
         }else if(currentPlayer == 1){
             Swal.fire({
+                icon: 'success',
                 title: 'Winner Winner!',
                 text: 'Player 2 Wins!!!!',
                 confirmButtonText: 'Congrats!!'
             });
         }
-    }else if(checkForDraw()){
+    }else if(thereIsADraw){
         Swal.fire({
             title: 'Draw',
             text: 'It is a tie!',
-            confirmButtonText: 'Wanna rematch?'
+            confirmButtonText: 'Wanna rematch?',
         });
     }
-    reset();
+
+    if(thereIsAWin || thereIsADraw){
+        reset();
+    }
 }
 
 function reset(){
