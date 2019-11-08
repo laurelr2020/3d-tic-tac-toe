@@ -1,100 +1,4 @@
-/** Game Pieces */
-
-function drawGamePieces(pieces){
-    if(pieces.length > 0 && pieces.length <=9){
-        for(let i = 0; i < pieces.length; i++){
-            if(pieces[i].player == 0){
-                let place = determineXPlace(pieces[i].place);
-                drawXGamePiece(place);
-                gameUpdate();
-                currentPlayer = 1;
-            }else if(pieces[i].player == 1){
-                let place = determineOPlace(pieces[i].place);
-                drawOGamePiece(place);  
-                gameUpdate();
-                currentPlayer = 0;    
-            }
-        }
-    }
-}
-
-function determineXPlace(squareSection){
-    switch(squareSection){
-        case "top-left": return leftTopSquareX;
-        case "top-middle": return middleTopSquareX;
-        case "top-right": return rightTopSquareX;
-
-        case "middle-left": return leftMiddleSquareX;
-        case "middle-middle": return middleSquareX;
-        case "middle-right": return rightMiddleSquareX;
-
-        case "bottom-left": return leftBottomSquareX;
-        case "bottom-middle": return middleBottomSquareX;
-        case "bottom-right": return rightBottomSquareX;
-    }
-}
-
-function determineOPlace(squareSection){
-    switch(squareSection){
-        case "top-left": return leftTopSquareO;
-        case "top-middle": return middleTopSquareO;
-        case "top-right": return rightTopSquareO;
-
-        case "middle-left": return leftMiddleSquareO;
-        case "middle-middle": return middleSquareO;
-        case "middle-right": return rightMiddleSquareO;
-
-        case "bottom-left": return leftBottomSquareO;
-        case "bottom-middle": return middleBottomSquareO;
-        case "bottom-right": return rightBottomSquareO;
-    }
-}
-
-/**
- * Tic-Tac-Toe X
- */
-const leftTopSquareX = [-45, 42, -45, 46, -25, 22, -25, 26, 
-                        -25, 42, -25, 46, -45, 22, -45, 26];
-const middleTopSquareX = [-10, 42, -10, 46,  10, 22,  10, 26, 
-                            10, 42,  10, 46, -10, 22, -10, 26];
-const rightTopSquareX = [45, 42, 45, 46, 25, 22, 25, 26, 
-                        25, 42, 25, 46, 45, 22, 45, 26];
-
-const leftMiddleSquareX = [ -45, 8, -45, 12, -25, -8, -25, -12, 
-                            -25, 8, -25, 12, -45, -8, -45, -12];
-const middleSquareX = [-10, 8, -10, 12,  10, -8,  10, -12, 
-                        10, 8,  10, 12, -10, -8, -10, -12];
-const rightMiddleSquareX = [45, 8, 45, 12, 25, -8, 25, -12, 
-                            25, 8, 25, 12, 45, -8, 45, -12];
-
-const leftBottomSquareX = [ -45, -42, -45, -46, -25, -22, -25, -26, 
-                            -25, -42, -25, -46, -45, -22, -45, -26];
-const middleBottomSquareX = [-10, -42, -10, -46,  10, -22,  10, -26, 
-                            10, -42, 10, -46, -10, -22, -10, -26];
-const rightBottomSquareX = [45, -42, 45, -46, 25, -22, 25, -26, 
-                            25, -42, 25, -46, 45, -22, 45, -26];
-
-/**
- * Tic-Tac-Toe O 
- */
-/** radius of O circles */
-const outerRadius = 12;
-const innerRadius = 8;
-
-/** [centerX, centerY] --> for center of circle */
-const leftTopSquareO   = [-35, 35];
-const middleTopSquareO = [  0, 34];
-const rightTopSquareO  = [ 35, 35];
-
-const leftMiddleSquareO  = [-34, 0];
-const middleSquareO      = [  0, 0];
-const rightMiddleSquareO = [ 34, 0];
-
-const leftBottomSquareO   = [-34, -35];
-const middleBottomSquareO = [  0, -34];
-const rightBottomSquareO  = [ 34, -35];
-
-    /**draws tic-tac-toe-board on Green Side of cube */
+/**draws tic-tac-toe-board on Green Side of cube */
 function drawTicTacToeBoard(){
     glColor3f(1.0, 1.0, 1.0);
     glBegin(GL_POLYGON);
@@ -126,6 +30,62 @@ function drawTicTacToeBoard(){
     glEnd();
 }
 
+function drawGamePieces(pieces){
+    if(pieces.length > 0 && pieces.length <=9){
+        for(let i = 0; i < pieces.length; i++){
+            if(pieces[i].player == 0){
+                let place = determineXPlace(pieces[i].place);
+                drawXGamePiece(place);
+                gameUpdate();
+                currentPlayer = 1;
+            }else if(pieces[i].player == 1){
+                let place = determineOPlace(pieces[i].place);
+                drawOGamePiece(place);  
+                gameUpdate();
+                currentPlayer = 0;    
+            }
+        }
+    }
+}
+
+/** Tic-Tac-Toe X */
+const leftTopSquareX = [-45, 42, -45, 46, -25, 22, -25, 26, 
+                        -25, 42, -25, 46, -45, 22, -45, 26];
+const middleTopSquareX = [-10, 42, -10, 46,  10, 22,  10, 26, 
+                            10, 42,  10, 46, -10, 22, -10, 26];
+const rightTopSquareX = [45, 42, 45, 46, 25, 22, 25, 26, 
+                        25, 42, 25, 46, 45, 22, 45, 26];
+
+const leftMiddleSquareX = [ -45, 8, -45, 12, -25, -8, -25, -12, 
+                            -25, 8, -25, 12, -45, -8, -45, -12];
+const middleSquareX = [-10, 8, -10, 12,  10, -8,  10, -12, 
+                        10, 8,  10, 12, -10, -8, -10, -12];
+const rightMiddleSquareX = [45, 8, 45, 12, 25, -8, 25, -12, 
+                            25, 8, 25, 12, 45, -8, 45, -12];
+
+const leftBottomSquareX = [ -45, -42, -45, -46, -25, -22, -25, -26, 
+                            -25, -42, -25, -46, -45, -22, -45, -26];
+const middleBottomSquareX = [-10, -42, -10, -46,  10, -22,  10, -26, 
+                            10, -42, 10, -46, -10, -22, -10, -26];
+const rightBottomSquareX = [45, -42, 45, -46, 25, -22, 25, -26, 
+                            25, -42, 25, -46, 45, -22, 45, -26];
+
+function determineXPlace(squareSection){
+    switch(squareSection){
+        case "top-left": return leftTopSquareX;
+        case "top-middle": return middleTopSquareX;
+        case "top-right": return rightTopSquareX;
+
+        case "middle-left": return leftMiddleSquareX;
+        case "middle-middle": return middleSquareX;
+        case "middle-right": return rightMiddleSquareX;
+
+        case "bottom-left": return leftBottomSquareX;
+        case "bottom-middle": return middleBottomSquareX;
+        case "bottom-right": return rightBottomSquareX;
+    }
+}
+
 /**draws the X game piece in the square that is passed in as a parameter */
 function drawXGamePiece(gamePiecePlace){
     glBegin(GL_POLYGON);
@@ -141,6 +101,40 @@ function drawXGamePiece(gamePiecePlace){
         glVertex3f( gamePiecePlace[12], gamePiecePlace[13], postiveZ + 1);
         glVertex3f( gamePiecePlace[14], gamePiecePlace[15], postiveZ + 1);
     glEnd();
+}
+
+/** Tic-Tac-Toe O*/
+/** radius of O circles */
+const outerRadius = 12;
+const innerRadius = 8;
+
+/** [centerX, centerY] --> for center of circle */
+const leftTopSquareO   = [-35, 35];
+const middleTopSquareO = [  0, 34];
+const rightTopSquareO  = [ 35, 35];
+
+const leftMiddleSquareO  = [-34, 0];
+const middleSquareO      = [  0, 0];
+const rightMiddleSquareO = [ 34, 0];
+
+const leftBottomSquareO   = [-34, -35];
+const middleBottomSquareO = [  0, -34];
+const rightBottomSquareO  = [ 34, -35];
+
+function determineOPlace(squareSection){
+    switch(squareSection){
+        case "top-left": return leftTopSquareO;
+        case "top-middle": return middleTopSquareO;
+        case "top-right": return rightTopSquareO;
+
+        case "middle-left": return leftMiddleSquareO;
+        case "middle-middle": return middleSquareO;
+        case "middle-right": return rightMiddleSquareO;
+
+        case "bottom-left": return leftBottomSquareO;
+        case "bottom-middle": return middleBottomSquareO;
+        case "bottom-right": return rightBottomSquareO;
+    }
 }
 
 /**draws the O game piece in the square that is passed in as a parameter */
@@ -164,6 +158,14 @@ function fillCircle(radius, centerX, centerY, zIndex){
         glVertex3f(x, y, zIndex);
     } 
     glEnd();
+}
+
+function clickOnBoard(x, y){
+    if(x >= 300 && x<= 635 && y>=230 && y<=550){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 //canvas coorrdiantes 
@@ -231,12 +233,4 @@ function checkBounds(x, y){
     }else{
         return "";
     }    
-}
-
-function clickOnBoard(x, y){
-    if(x >= 300 && x<= 635 && y>=230 && y<=550){
-        return true;
-    }else{
-        return false;
-    }
 }
